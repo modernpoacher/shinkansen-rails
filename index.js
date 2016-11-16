@@ -1,3 +1,3 @@
-require('babel-register') // ({ ignore: /node_modules|!(react-gears\/lib)/ })
+require('babel-register') // ({ ignore: /!(react-gears\/lib)/ })
 
 module.exports = require('./lib')
