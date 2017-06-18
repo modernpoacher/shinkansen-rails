@@ -99,9 +99,9 @@ export class Gears {
 
   static part = (s) => {
     const k = toString(s)
-    let S = map.get(k)
-    if (S) return S
-    map.set(k, S = part(k))
+    if (map.has(k)) return map.get(k)
+    const S = part(k)
+    map.set(k, S)
     return S
   }
 
