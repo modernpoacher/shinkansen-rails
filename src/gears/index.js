@@ -90,7 +90,7 @@ const part = (s) => (
 
 export class Gears {
   static pattern = (p) => (
-    !!p ? (pattern = toString(p)) : pattern || (pattern = PATTERN)
+    p ? (pattern = toString(p)) : pattern || (pattern = PATTERN)
   )
 
   static engage = (o = {}, s = Gears.pattern()) => (
@@ -108,8 +108,8 @@ export class Gears {
   static path = (o = {}, s = Gears.pattern()) => (
     any(o)
       ? toString(s).replace(/(?::)(\w+)/g, (m, k) => ( // can't pull this out into a const because 'o' must be in scope
-          m ? has(o, k) ? get(o, k) : m : m
-        ))
+        m ? has(o, k) ? get(o, k) : m : m
+      ))
       : toString(s)
   )
 }
