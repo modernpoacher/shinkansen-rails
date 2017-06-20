@@ -1,17 +1,16 @@
 {
-  "name": "react-gears",
-  "version": "0.6.5",
-  "description": "React Gears",
+  "name": "locomotive-gears",
+  "version": "0.0.1",
+  "description": "Locomotive Gears",
   "main": "./index.js",
   "keywords": [
-    "React",
-    "JSON",
-    "Schema",
-    "Form"
+    "Locomotive",
+    "Gears",
+    "Zashiki Karakuri"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com/modernpoacher/React.Gears.git"
+    "url": "git@github.com/modernpoacher/Locomotive.Gears.git"
   },
   "author": "Jonathan Perry for Modern Poacher",
   "license": "MIT",
