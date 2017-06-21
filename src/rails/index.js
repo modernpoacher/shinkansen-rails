@@ -20,7 +20,7 @@ const toString = (s) => (s || `${s}`).toString()
  *
  *  @param {String} s   The 'pattern' according to which URLs should be created
  *  @param {Object} o   The object containing values for the 'pattern'
- *  @param {Boolean} b  Whether the Gears can engage
+ *  @param {Boolean} b  Whether the Rails can engage
  *  @return {Boolean}
  *
  *  @description
@@ -88,12 +88,12 @@ const part = (s) => (
   s.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
 )
 
-export class Gears {
+export class Rails {
   static pattern = (p) => (
     p ? (pattern = toString(p)) : pattern || (pattern = PATTERN)
   )
 
-  static engage = (o = {}, s = Gears.pattern()) => (
+  static engage = (o = {}, s = Rails.pattern()) => (
     any(o) ? (s = toString(s)) ? engage(s, o) : !!0 : !!0 // return is s is truthy true then engage else false
   )
 
@@ -105,7 +105,7 @@ export class Gears {
     return S
   }
 
-  static path = (o = {}, s = Gears.pattern()) => (
+  static path = (o = {}, s = Rails.pattern()) => (
     any(o)
       ? toString(s).replace(/(?::)(\w+)/g, (m, k) => ( // can't pull this out into a const because 'o' must be in scope
         m ? has(o, k) ? get(o, k) : m : m

@@ -1,3 +1,3 @@
 export {
-  Gears
-} from './gears'
+  Rails
+} from './rails'
