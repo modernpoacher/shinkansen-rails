@@ -1,16 +1,16 @@
 {
-  "name": "locomotive-gears",
-  "version": "0.0.2",
-  "description": "Locomotive Gears",
+  "name": "shinkansen-gears",
+  "version": "0.0.1",
+  "description": "Shinkansen Gears",
   "main": "./index.js",
   "keywords": [
-    "Locomotive",
+    "Shinkansen",
     "Gears",
     "Zashiki Karakuri"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com/modernpoacher/Locomotive.Gears.git"
+    "url": "git@github.com/modernpoacher/Shinkansen.Gears.git"
   },
   "author": "Jonathan Perry for Modern Poacher",
   "license": "MIT",
