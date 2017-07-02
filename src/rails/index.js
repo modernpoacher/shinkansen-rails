@@ -69,13 +69,14 @@ const toString = (s) => (s || `${s}`).toString()
  *
  *  (Since 'forEach' does not break, while a 'while' will)
  */
-const engage = (s, o, b = true) => {
+const engage = (s, o) => { // babili fails
+  let b = true
   const a = s.match(/(\w+)/g)
   let k
   while (b && (k = a.shift())) {
-    b = has(o, k) ? !!get(o, k) : !!0
+    b = has(o, k) ? !!get(o, k) : false
   }
-  return b
+  return b // babili fails
 }
 
 /**
@@ -94,7 +95,7 @@ export class Rails {
   )
 
   static engage = (o = {}, s = Rails.pattern()) => (
-    any(o) ? (s = toString(s)) ? engage(s, o) : !!0 : !!0 // return is s is truthy true then engage else false
+    any(o) ? (s = toString(s)) ? engage(s, o) : false : false // return is s is truthy true then engage else false
   )
 
   static part = (s) => {
