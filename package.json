@@ -1,6 +1,6 @@
 {
   "name": "shinkansen-rails",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Shinkansen Rails",
   "main": "./index.js",
   "keywords": [
@@ -31,9 +31,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2016": "^6.24.1",
-    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "eslint": "^4.4.1",
