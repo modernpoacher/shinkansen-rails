@@ -1,3 +1,1 @@
-export {
-  Rails
-} from './rails'
+export Rails from './rails'

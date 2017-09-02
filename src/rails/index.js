@@ -89,7 +89,11 @@ const part = (s) => (
   s.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
 )
 
-export class Rails {
+/**
+ *  Rails.go() <- Rails.engage()
+ *  Rails.to() <- Rails.path()
+ */
+export default class Rails {
   static pattern = (p) => (
     p ? (pattern = toString(p)) : pattern || (pattern = PATTERN)
   )
