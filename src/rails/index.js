@@ -20,7 +20,7 @@ const toString = (s) => (s || `${s}`).toString()
  *
  *  @param {String} s   The 'pattern' according to which URLs should be created
  *  @param {Object} o   The object containing values for the 'pattern'
- *  @param {Boolean} b  Whether the Rails can engage
+ *  @param {Boolean} b  Whether the Rails can go
  *  @return {Boolean}
  *
  *  @description
@@ -36,13 +36,13 @@ const toString = (s) => (s || `${s}`).toString()
  *
  *  Was:
  *
- *    const engage = (s, o, b) => (
+ *    const go = (s, o, b) => (
  *      s.match(/(\w+)/g).forEach((k) => (k in o) ? b ? (b = !!o[k]) : b : (b = !!0)) || b
  *    )
  *
  *  Otherwise:
  *
- *    const engage = (s, o, b) => {
+ *    const go = (s, o, b) => {
  *      s.match(/(\w+)/g)
  *        .forEach((k) => {
  *          if (Reflect.has(o, k)) {
@@ -58,7 +58,7 @@ const toString = (s) => (s || `${s}`).toString()
  *
  *  Now (equivalent to):
  *
- *    const engage = (s, o, b) => {
+ *    const go = (s, o, b) => {
  *      const a = s.match(/(\w+)/g)
  *      let k
  *      while (b && (k = a.shift())) {
@@ -69,12 +69,14 @@ const toString = (s) => (s || `${s}`).toString()
  *
  *  (Since 'forEach' does not break, while a 'while' will)
  */
-const engage = (s, o) => { // babili fails
-  let b = true
-  const a = s.match(/(\w+)/g)
-  let k
-  while (b && (k = a.shift())) {
-    b = has(o, k) ? !!get(o, k) : false
+const go = (o, s) => { // babili fails
+  let b = any(o)
+  if (b) {
+    let k
+    const a = s.match(/(\w+)/g)
+    while (b && (k = a.shift())) {
+      b = has(o, k) ? !!get(o, k) : false
+    }
   }
   return b // babili fails
 }
@@ -85,7 +87,7 @@ const engage = (s, o) => { // babili fails
  *  @param {String} s   The string to convert
  *  @return {String}    The string, converted
  */
-const part = (s) => (
+const rail = (s) => (
   s.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
 )
 
@@ -98,19 +100,19 @@ export default class Rails {
     p ? (pattern = toString(p)) : pattern || (pattern = PATTERN)
   )
 
-  static engage = (o = {}, s = Rails.pattern()) => (
-    any(o) ? (s = toString(s)) ? engage(s, o) : false : false // return is s is truthy true then engage else false
-  )
-
-  static part = (s) => {
+  static rail = (s) => {
     const k = toString(s)
     if (map.has(k)) return map.get(k)
-    const S = part(k)
+    const S = rail(k)
     map.set(k, S)
     return S
   }
 
-  static path = (o = {}, s = Rails.pattern()) => (
+  static go = (o = {}, s = Rails.pattern()) => (
+    any(o) ? (s = toString(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
+  )
+
+  static to = (o = {}, s = Rails.pattern()) => (
     any(o)
       ? toString(s).replace(/(?::)(\w+)/g, (m, k) => ( // can't pull this out into a const because 'o' must be in scope
         m ? has(o, k) ? get(o, k) : m : m
