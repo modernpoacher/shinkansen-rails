@@ -12,7 +12,6 @@ if [[ $? -eq 0 ]]; then
 
   # echo -e "\x15" # CR
   echo -e $PASS $MODULE
-
   echo -e "\x15" # CR
 
   npm link
