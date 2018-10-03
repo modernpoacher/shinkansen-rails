@@ -108,7 +108,7 @@ export default class Rails {
     return S
   }
 
-  static go = (o = {}, s = Rails.pattern()) => (
+  static go = (o = {}, s = Rails.pattern()) => ( // eslint-disable-next-line no-cond-assign
     any(o) ? (s = toString(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
   )
 
