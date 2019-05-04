@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com/modernpoacher/Shinkansen.Rails.git"
+    "url": "git@github.com/modernpoacher/shinkansen-rails.git"
   },
   "author": "Jonathan Perry for Modern Poacher Limited",
   "license": "MIT",
