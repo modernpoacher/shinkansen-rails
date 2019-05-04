@@ -1,6 +1,6 @@
 {
   "name": "shinkansen-rails",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Shinkansen Rails",
   "main": "./index.js",
   "keywords": [
