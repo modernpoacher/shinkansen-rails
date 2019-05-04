@@ -23,7 +23,7 @@
     "clean": "bash clean.sh",
     "babel": "babel src -d lib",
     "babel:watch": "npm run build -- -w",
-    "lint": "eslint src",
+    "lint": "eslint src *.js",
     "lint:fix": "npm run lint -- --fix",
     "pre-commit": "npm run lint && npm run babel && git add lib"
   },
