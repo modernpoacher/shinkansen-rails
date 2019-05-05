@@ -13,7 +13,7 @@ const any = (o) => !!Reflect.ownKeys(o).length
 const has = (o, k) => Reflect.has(o, k)
 const get = (o, k) => Reflect.get(o, k)
 
-const toString = (s) => (s || `${s}`).toString()
+// const toString = (s) => (s || `${s}`).toString()
 
 /**
  *  Interrogate parameters to determine whether or not components can be created
@@ -92,16 +92,16 @@ const rail = (s) => (
 )
 
 /**
- *  Rails.go() <- Rails.engage()
- *  Rails.to() <- Rails.path()
+ *  Rails.go()  Boolean
+ *  Rails.to()  String
  */
 export default class Rails {
   static pattern = (p) => (
-    p ? (pattern = toString(p)) : pattern || (pattern = PATTERN)
+    p ? (pattern = String(p)) : pattern || (pattern = PATTERN)
   )
 
   static rail = (s) => {
-    const k = toString(s)
+    const k = String(s)
     if (map.has(k)) return map.get(k)
     const S = rail(k)
     map.set(k, S)
@@ -109,14 +109,14 @@ export default class Rails {
   }
 
   static go = (o = {}, s = Rails.pattern()) => ( // eslint-disable-next-line no-cond-assign
-    any(o) ? (s = toString(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
+    any(o) ? (s = String(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
   )
 
   static to = (o = {}, s = Rails.pattern()) => (
     any(o)
-      ? toString(s).replace(/(?::)(\w+)/g, (m, k) => ( // can't pull this out into a const because 'o' must be in scope
+      ? String(s).replace(/(?::)(\w+)/g, (m, k) => ( // can't pull this out into a const because 'o' must be in scope
         m ? has(o, k) ? get(o, k) : m : m
       ))
-      : toString(s)
+      : String(s)
   )
 }
