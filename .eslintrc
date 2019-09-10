@@ -1,7 +1,8 @@
 {
   "env": {
     "es6": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "extends": [
     "standard"
@@ -9,5 +10,14 @@
   "parserOptions": {
     "ecmaVersion": 6
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "overrides": [
+    {
+      "files": ["src/rails/index.js"],
+      "rules": {
+        "no-cond-assign": "off",
+        "no-useless-escape": "off"
+      }
+    }
+  ]
 }
