@@ -4,19 +4,11 @@
     "node": true
   },
   "extends": [
+    "eslint:recommended",
     "standard"
   ],
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 10
   },
-  "parser": "babel-eslint",
-  "overrides": [
-    {
-      "files": ["src/rails/index.js"],
-      "rules": {
-        "no-cond-assign": "off",
-        "no-useless-escape": "off"
-      }
-    }
-  ]
+  "parser": "babel-eslint"
 }
