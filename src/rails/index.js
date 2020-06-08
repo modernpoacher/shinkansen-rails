@@ -17,9 +17,11 @@ export const get = (o, k) => Reflect.get(o, k)
  *  @param {String} s   The string to convert
  *  @return {String}    The string, converted
  */
-export const rail = (s) => (
-  s.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
-)
+export function rail (s) {
+  return (
+    s.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
+  )
+}
 
 /**
  *  Interrogate parameters to determine whether or not components can be created
@@ -42,13 +44,15 @@ export const rail = (s) => (
  *
  *  A `reduce` cannot break when `b` is false
  */
-export const go = (o, s) => {
+export function go (o, s) {
   let b = any(o)
+
   if (b) {
     let k
     const a = s.match(/(\w+)/g)
     while (b && (k = a.shift())) b = has(o, k) // it is only necessary that the `o` has key `k`. Otherwise, `b = has(o, k) && !!get(o, k)` to enforce a truthy field value for field key `k`
   }
+
   return b
 }
 
@@ -69,18 +73,24 @@ export const go = (o, s) => {
  *
  *    /:fieldName
  */
-export const to = (o, s) => s.replace(/(?::)(\w+)/g, (m, k) => m ? has(o, k) ? get(o, k) : m : m)
+export function to (o, s) {
+  return (
+    s.replace(/(?::)(\w+)/g, (m, k) => m ? has(o, k) ? get(o, k) : m : m)
+  )
+}
 
 /**
  *  Rails.go()  Boolean
  *  Rails.to()  String
  */
 export default class Rails {
-  static pattern = (p) => (
-    p ? (pattern = String(p)) : pattern || (pattern = PATTERN)
-  )
+  static pattern (p) {
+    return (
+      p ? (pattern = String(p)) : pattern || (pattern = PATTERN)
+    )
+  }
 
-  static rail = (s) => {
+  static rail (s) {
     const k = String(s)
     if (map.has(k)) return map.get(k)
     const S = rail(k)
@@ -88,11 +98,15 @@ export default class Rails {
     return S
   }
 
-  static go = (o = {}, s = Rails.pattern()) => (
-    any(o) ? (s = String(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
-  )
+  static go (o = {}, s = Rails.pattern()) {
+    return (
+      any(o) ? (s = String(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
+    )
+  }
 
-  static to = (o = {}, s = Rails.pattern()) => (
-    any(o) ? (s = String(s)) ? to(o, s) : s : s
-  )
+  static to (o = {}, s = Rails.pattern()) {
+    return (
+      any(o) ? (s = String(s)) ? to(o, s) : s : s
+    )
+  }
 }
