@@ -12,6 +12,9 @@
   "main": "./index.js",
   "author": "Jonathan Perry for Modern Poacher Limited <modernpoacher@modernpoacher.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=12.18.1"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com/modernpoacher/shinkansen-rails.git"
@@ -28,6 +31,9 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "NODE_ENV=test mocha -r @babel/register test --recursive",
     "pre-commit": "npm run lint && npm test && npm run build && git add lib"
+  },
+  "dependencies": {
+    "debug": "^4.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
