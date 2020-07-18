@@ -1,4 +1,4 @@
-## @modernpoacher/shinkansen-rails
+## shinkansen-rails
 
 # Shinkansen Rails
 
