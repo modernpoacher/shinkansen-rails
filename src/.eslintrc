@@ -5,7 +5,9 @@
   },
   "overrides": [
     {
-      "files": ["rails/index.js"],
+      "files": [
+        "rails/index.js"
+      ],
       "rules": {
         "no-cond-assign": "off",
         "no-useless-escape": "off"
