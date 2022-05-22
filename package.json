@@ -29,7 +29,7 @@
     "babel:watch": "npm run build -- -w",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "NODE_ENV=test mocha -r @babel/register test --recursive",
+    "test": "cross-env NODE_ENV=test mocha -r @babel/register test --recursive",
     "pre-commit": "npm run lint && npm test && npm run build && git add lib"
   },
   "dependencies": {
