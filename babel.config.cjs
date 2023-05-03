@@ -43,7 +43,7 @@ const plugins = [
   [
     'module-resolver', {
       alias: {
-        'shinkansen-rails': './src'
+        '#rails': './src/rails/index.mjs'
       }
     }
   ]
@@ -53,8 +53,6 @@ module.exports = (api) => {
   if (api) api.cache.using(env)
 
   return {
-    compact: true,
-    comments: false,
     presets,
     plugins
   }

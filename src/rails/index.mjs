@@ -18,7 +18,7 @@ export const get = (o, k) => Reflect.get(o, k)
  *  @return {String}    The string, converted
  */
 export function rail (s) {
-  return (
+  return ( // eslint-disable-next-line no-useless-escape
     s.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
   )
 }
@@ -99,13 +99,13 @@ export default class Rails {
   }
 
   static go (o = {}, s = Rails.pattern()) {
-    return (
+    return ( // eslint-disable-next-line no-cond-assign
       any(o) ? (s = String(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
     )
   }
 
   static to (o = {}, s = Rails.pattern()) {
-    return (
+    return ( // eslint-disable-next-line no-cond-assign
       any(o) ? (s = String(s)) ? to(o, s) : s : s
     )
   }

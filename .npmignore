@@ -10,7 +10,6 @@
 .depsrc
 
 # NPM
-.npmignore
 .npmrc
 
 # Mocha
