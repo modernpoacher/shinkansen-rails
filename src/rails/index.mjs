@@ -1,3 +1,9 @@
+import debug from 'debug'
+
+const log = debug('shinkansen-rails')
+
+log('`shinkansen` is awake')
+
 let pattern
 
 const map = new Map()

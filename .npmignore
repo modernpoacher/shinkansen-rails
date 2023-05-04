@@ -9,8 +9,11 @@
 
 .depsrc
 
-# NPM
+# User-defined NPM configuration
 .npmrc
+
+# User-defined NVM configuration
+.nvmrc
 
 # Mocha
 test

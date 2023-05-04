@@ -43,7 +43,8 @@ const plugins = [
   [
     'module-resolver', {
       alias: {
-        '#rails': './src/rails/index.mjs'
+        'shinkansen-rails/rails': './src/rails/index.mjs',
+        'shinkansen-rails': './src/index.cjs'
       }
     }
   ]

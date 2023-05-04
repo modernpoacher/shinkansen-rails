@@ -1,3 +1,13 @@
-require('@babel/register')
+require('@babel/register')({ ignore: [/node_modules/], configFile: require.resolve('../babel.config.cjs') })
 
-module.exports = require('#rails')
+const debug = require('debug')
+
+const log = debug('shinkansen-rails')
+
+log('`shinkansen` is awake')
+
+const {
+  default: Rails
+} = require('./rails/index.mjs')
+
+module.exports.Rails = Rails
