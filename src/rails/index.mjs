@@ -100,12 +100,12 @@ export default class Rails {
    *  @param {string | void} p   The 'pattern' according to which URLs should be created
    *  @return {string}
    */
-  static rail (p) {
+  static rail (p = Rails.pattern()) {
     const k = String(p)
     if (map.has(k)) return map.get(k)
-    const S = rail(k)
-    map.set(k, S)
-    return S
+    const s = rail(k)
+    map.set(k, s)
+    return s
   }
 
   /**
