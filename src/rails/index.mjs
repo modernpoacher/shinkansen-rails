@@ -20,22 +20,22 @@ export const get = (o, k) => Reflect.get(o, k)
 /**
  *  Format simple latin character strings as URL compatible
  *
- *  @param {String} s   The string to convert
- *  @return {String}    The string, converted
+ *  @param {string} p   The string to convert
+ *  @return {string}    The string, converted
  */
-export function rail (s) {
+export function rail (p) {
   return ( // eslint-disable-next-line no-useless-escape
-    s.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
+    p.toLowerCase().replace(/[^\w\-\d]/g, CHAR32).trim().replace(/[\s]+/g, CHAR45).replace(/[\s\s|\-\-]+/g, CHAR45)
   )
 }
 
 /**
  *  Interrogate parameters to determine whether or not components can be created
  *
- *  @param {Object} o   The object containing values for the 'pattern'
- *  @param {String} s   The 'pattern' according to which URLs should be created
- *  @param {Boolean} b  Whether the Rails can go
- *  @return {Boolean}
+ *  @param {{}} o   The object containing values for the 'pattern'
+ *  @param {string} p   The 'pattern' according to which URLs should be created
+ *  @param {boolean} b  Whether the Rails can go
+ *  @return {boolean}
  *
  *  @description
  *
@@ -50,12 +50,12 @@ export function rail (s) {
  *
  *  A `reduce` cannot break when `b` is false
  */
-export function go (o, s) {
+export function go (o, p) {
   let b = any(o)
 
   if (b) {
     let k
-    const a = s.match(/(\w+)/g)
+    const a = p.match(/(\w+)/g)
     while (b && (k = a.shift())) b = has(o, k) // it is only necessary that the `o` has key `k`. Otherwise, `b = has(o, k) && !!get(o, k)` to enforce a truthy field value for field key `k`
   }
 
@@ -65,9 +65,9 @@ export function go (o, s) {
 /**
  *  Interrogate parameters for object field names
  *
- *  @param {Object} o   The object containing fields
- *  @param {String} s   The string containing field names to be found
- *  @return {String}
+ *  @param {{}} o   The object containing fields
+ *  @param {string} p   The string containing field names to be found
+ *  @return {string}
  *
  *  @description
  *
@@ -79,40 +79,54 @@ export function go (o, s) {
  *
  *    /:fieldName
  */
-export function to (o, s) {
+export function to (o, p) {
   return (
-    s.replace(/(?::)(\w+)/g, (m, k) => m ? has(o, k) ? get(o, k) : m : m)
+    p.replace(/(?::)(\w+)/g, (m, k) => m ? has(o, k) ? get(o, k) : m : m)
   )
 }
 
-/**
- *  Rails.go()  Boolean
- *  Rails.to()  String
- */
 export default class Rails {
+  /**
+   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @return {string}
+   */
   static pattern (p) {
     return (
       p ? (pattern = String(p)) : pattern || (pattern = PATTERN)
     )
   }
 
-  static rail (s) {
-    const k = String(s)
+  /**
+   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @return {string}
+   */
+  static rail (p) {
+    const k = String(p)
     if (map.has(k)) return map.get(k)
     const S = rail(k)
     map.set(k, S)
     return S
   }
 
-  static go (o = {}, s = Rails.pattern()) {
+  /**
+   *  @param {{} | void} o   The object containing values for the 'pattern'
+   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @return {boolean}
+   */
+  static go (o = {}, p = Rails.pattern()) {
     return ( // eslint-disable-next-line no-cond-assign
-      any(o) ? (s = String(s)) ? go(o, s) : false : false // return is s is truthy true then go else false
+      any(o) ? (p = String(p)) ? go(o, p) : false : false // return is p is truthy true then go else false
     )
   }
 
-  static to (o = {}, s = Rails.pattern()) {
+  /**
+   *  @param {{} | void} o   The object containing values for the 'pattern'
+   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @return {boolean}
+   */
+  static to (o = {}, p = Rails.pattern()) {
     return ( // eslint-disable-next-line no-cond-assign
-      any(o) ? (s = String(s)) ? to(o, s) : s : s
+      any(o) ? (p = String(p)) ? to(o, p) : p : p
     )
   }
 }
