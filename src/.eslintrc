@@ -1,12 +1,19 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
-  },
   "overrides": [
     {
       "files": [
-        "rails/index.js"
+        "*.mts",
+        "*.cts"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": "standard-with-typescript",
+      "parser": "@typescript-eslint/parser"
+    },
+    {
+      "files": [
+        "rails/index.mjs"
       ],
       "rules": {
         "no-cond-assign": "off",
