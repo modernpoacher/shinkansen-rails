@@ -1,6 +1,6 @@
 ## `shinkansen-rails`
 
-# Shinkansen Rails
+# Rails
 
 *Rails* transforms objects into strings to be consumed by `<Link />` components for *React Router*.
 
@@ -32,5 +32,5 @@ The method `rail` should be used whenever the computation is (or expected to be)
 
 ## See also
 
-- [Shinkansen Gears](https://github.com/modernpoacher/shinkansen-gears)
-- [Shinkansen Pantograph](https://github.com/modernpoacher/shinkansen-pantograph)
+- [Gears](https://github.com/modernpoacher/shinkansen-gears)
+- [Pantograph](https://github.com/modernpoacher/shinkansen-pantograph)
