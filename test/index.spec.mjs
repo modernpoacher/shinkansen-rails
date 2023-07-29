@@ -1,11 +1,11 @@
-import chai, { expect } from 'chai'
+import { use, expect } from 'chai'
 import sinonChai from 'sinon-chai'
 
 import {
   Rails
 } from 'shinkansen-rails'
 
-chai.use(sinonChai)
+use(sinonChai)
 
 describe('shinkansen-rails', () => {
   it('is a function', () => {
