@@ -1,5 +1,5 @@
 import { use, expect } from 'chai'
-import sinonChai from 'sinon-chai'
+import sinonChai from '@sequencemedia/sinon-chai'
 
 import Rails, { any, has, get, rail, go, to } from 'shinkansen-rails/rails'
 
