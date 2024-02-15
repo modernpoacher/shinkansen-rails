@@ -30,7 +30,7 @@
     "pretest": "npm run nvm",
     "test": "cross-env NODE_ENV=test mocha test --recursive",
     "nvm": "bash nvm.sh",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "debug": "^4.3.4"
