@@ -14,7 +14,3 @@ declare module 'shinkansen-rails/rails' {
     static to (o: Record<string, unknown> | undefined, p: string | undefined): boolean
   }
 }
-
-declare module 'shinkansen-rails' {
-  export { default as Rails } from 'shinkansen-rails/rails'
-}
