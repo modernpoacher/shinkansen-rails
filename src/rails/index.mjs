@@ -13,8 +13,21 @@ const PATTERN = '/:alpha/:omega'
 const CHAR32 = String.fromCharCode(32)
 const CHAR45 = String.fromCharCode(45)
 
+/**
+ *  @param {Record<string, unknown>} o   The object containing values
+ */
 export const any = (o) => !!Reflect.ownKeys(o).length
+
+/**
+ *  @param {Record<string, unknown>} o   The object containing values
+ *  @param {string} k   The value name
+ */
 export const has = (o, k) => Reflect.has(o, k)
+
+/**
+ *  @param {Record<string, unknown>} o   The object containing values
+ *  @param {string} k   The value name
+ */
 export const get = (o, k) => Reflect.get(o, k)
 
 /**
@@ -32,7 +45,7 @@ export function rail (p) {
 /**
  *  Interrogate parameters to determine whether or not components can be created
  *
- *  @param {{}} o   The object containing values for the 'pattern'
+ *  @param {Record<string, unknown>} o   The object containing values for the 'pattern'
  *  @param {string} p   The 'pattern' according to which URLs should be created
  *  @param {boolean} b  Whether the Rails can go
  *  @return {boolean}
@@ -65,7 +78,7 @@ export function go (o, p) {
 /**
  *  Interrogate parameters for object field names
  *
- *  @param {{}} o   The object containing fields
+ *  @param {Record<string, unknown>} o   The object containing fields
  *  @param {string} p   The string containing field names to be found
  *  @return {string}
  *
@@ -87,7 +100,7 @@ export function to (o, p) {
 
 export default class Rails {
   /**
-   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
    *  @return {string}
    */
   static pattern (p) {
@@ -97,7 +110,7 @@ export default class Rails {
   }
 
   /**
-   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
    *  @return {string}
    */
   static rail (p = Rails.pattern()) {
@@ -109,8 +122,8 @@ export default class Rails {
   }
 
   /**
-   *  @param {{} | void} o   The object containing values for the 'pattern'
-   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @param {Record<string, unknown> | undefined} o   The object containing values for the 'pattern'
+   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
    *  @return {boolean}
    */
   static go (o = {}, p = Rails.pattern()) {
@@ -120,8 +133,8 @@ export default class Rails {
   }
 
   /**
-   *  @param {{} | void} o   The object containing values for the 'pattern'
-   *  @param {string | void} p   The 'pattern' according to which URLs should be created
+   *  @param {Record<string, unknown> | undefined} o   The object containing values for the 'pattern'
+   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
    *  @return {boolean}
    */
   static to (o = {}, p = Rails.pattern()) {

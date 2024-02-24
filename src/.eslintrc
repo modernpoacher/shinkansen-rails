@@ -9,7 +9,10 @@
         "@typescript-eslint"
       ],
       "extends": "standard-with-typescript",
-      "parser": "@typescript-eslint/parser"
+      "parser": "@typescript-eslint/parser",
+      "rules": {
+        "@typescript-eslint/no-extraneous-class": "off"
+      }
     },
     {
       "files": [
