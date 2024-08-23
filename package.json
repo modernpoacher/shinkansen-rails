@@ -40,9 +40,9 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
-    "@babel/preset-env": "^7.25.3",
+    "@babel/preset-env": "^7.25.4",
     "@babel/register": "^7.24.6",
-    "@modernpoacher/hooks": "^1.0.491",
+    "@modernpoacher/hooks": "^1.0.492",
     "@sequencemedia/sinon-chai": "^0.0.38",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
