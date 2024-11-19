@@ -53,7 +53,7 @@
     "eslint-config-love": "47.0.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-import-resolver-babel-module": "^5.3.2",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "mocha": "^10.8.2",
     "sinon": "^19.0.2"
   },
