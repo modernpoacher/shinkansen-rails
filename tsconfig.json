@@ -1,11 +1,24 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
+    "module": "ESNext",
     "target": "ESNext",
-    "moduleResolution": "NodeNext",
+    "allowJs": true,
+    "checkJs": false,
+    "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "strict": true,
     "isolatedModules": true,
-    "baseUrl": "."
-  }
+    "baseUrl": ".",
+    "paths": {
+      "#rails": [
+        "src/index.mjs"
+      ],
+      "#rails/rails": [
+        "src/rails/index.mjs"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }

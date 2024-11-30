@@ -45,17 +45,19 @@
     "@sequencemedia/sinon-chai": "^0.0.87",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "babel-plugin-module-resolver": "^5.0.2",
     "chai": "^5.1.2",
     "core-js": "^3.39.0",
     "cross-env": "^7.0.3",
     "eslint": "8.57.1",
     "eslint-config-love": "47.0.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-import-resolver-babel-module": "^5.3.2",
     "husky": "^9.1.7",
     "mocha": "^10.8.2",
     "sinon": "^19.0.2"
+  },
+  "imports": {
+    "#rails": "./src/index.mjs",
+    "#rails/rails": "./src/rails/index.mjs"
   },
   "exports": {
     ".": {

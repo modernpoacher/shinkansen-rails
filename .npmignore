@@ -8,6 +8,7 @@
 .eslintignore
 .eslintrc
 
+.gitignore
 .gitattributes
 
 .depsrc
@@ -23,3 +24,7 @@ test
 
 # Shell
 nvm.sh
+
+# TypeScript
+tsconfig.json
+jsconfig.json
