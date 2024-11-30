@@ -14,18 +14,18 @@ const CHAR32 = String.fromCharCode(32)
 const CHAR45 = String.fromCharCode(45)
 
 /**
- *  @param {Record<string, unknown>} o   The object containing values
+ *  @param {Record<PropertyKey, unknown>} o   The object containing values
  */
 export const any = (o) => !!Reflect.ownKeys(o).length
 
 /**
- *  @param {Record<string, unknown>} o   The object containing values
+ *  @param {Record<PropertyKey, unknown>} o   The object containing values
  *  @param {string} k   The value name
  */
 export const has = (o, k) => Reflect.has(o, k)
 
 /**
- *  @param {Record<string, unknown>} o   The object containing values
+ *  @param {Record<PropertyKey, unknown>} o   The object containing values
  *  @param {string} k   The value name
  */
 export const get = (o, k) => Reflect.get(o, k)
@@ -45,7 +45,7 @@ export function rail (p) {
 /**
  *  Interrogate parameters to determine whether or not components can be created
  *
- *  @param {Record<string, unknown>} o   The object containing values for the 'pattern'
+ *  @param {Record<PropertyKey, unknown>} o   The object containing values for the 'pattern'
  *  @param {string} p   The 'pattern' according to which URLs should be created
  *  @param {boolean} b  Whether the Rails can go
  *  @return {boolean}
@@ -78,7 +78,7 @@ export function go (o, p) {
 /**
  *  Interrogate parameters for object field names
  *
- *  @param {Record<string, unknown>} o   The object containing fields
+ *  @param {Record<PropertyKey, unknown>} o   The object containing fields
  *  @param {string} p   The string containing field names to be found
  *  @return {string}
  *
@@ -122,7 +122,7 @@ export default class Rails {
   }
 
   /**
-   *  @param {Record<string, unknown> | undefined} o   The object containing values for the 'pattern'
+   *  @param {Record<PropertyKey, unknown> | undefined} o   The object containing values for the 'pattern'
    *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
    *  @return {boolean}
    */
@@ -133,7 +133,7 @@ export default class Rails {
   }
 
   /**
-   *  @param {Record<string, unknown> | undefined} o   The object containing values for the 'pattern'
+   *  @param {Record<PropertyKey, unknown> | undefined} o   The object containing values for the 'pattern'
    *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
    *  @return {boolean}
    */
