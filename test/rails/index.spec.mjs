@@ -1,4 +1,6 @@
-import { expect } from 'chai'
+import {
+  expect
+} from 'chai'
 
 import Rails, { any, has, get, rail, go, to } from 'shinkansen-rails/rails'
 
