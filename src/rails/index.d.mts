@@ -7,7 +7,7 @@ declare module '#rails/rails' {
   export function go (o: Record<PropertyKey, unknown>, p: string): boolean
   export function to (o: Record<PropertyKey, unknown>, p: string): boolean
 
-  export default class Rails {
+  export default class Rails { // eslint-disable-line @typescript-eslint/no-extraneous-class -- Static class
     static pattern (p: string | undefined): string
     static rail (p: string | undefined): string
     static go (o: Record<PropertyKey, unknown> | undefined, p: string | undefined): boolean
