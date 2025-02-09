@@ -4,6 +4,7 @@ const log = debug('shinkansen-rails')
 
 log('`shinkansen` is awake')
 
+// @ts-ignore
 let pattern
 
 const map = new Map()
@@ -21,12 +22,14 @@ export const any = (o) => !!Reflect.ownKeys(o).length
 /**
  *  @param {Record<PropertyKey, unknown>} o   The object containing values
  *  @param {string} k   The value name
+ *  @returns {boolean}
  */
 export const has = (o, k) => Reflect.has(o, k)
 
 /**
  *  @param {Record<PropertyKey, unknown>} o   The object containing values
  *  @param {string} k   The value name
+ *  @returns {unknown}
  */
 export const get = (o, k) => Reflect.get(o, k)
 
@@ -47,7 +50,6 @@ export function rail (p) {
  *
  *  @param {Record<PropertyKey, unknown>} o   The object containing values for the 'pattern'
  *  @param {string} p   The 'pattern' according to which URLs should be created
- *  @param {boolean} b  Whether the Rails can go
  *  @return {boolean}
  *
  *  @description
@@ -68,7 +70,7 @@ export function go (o, p) {
 
   if (b) {
     let k
-    const a = p.match(/(\w+)/g)
+    const a = p.match(/(\w+)/g) ?? []
     while (b && (k = a.shift())) b = has(o, k) // it is only necessary that the `o` has key `k`. Otherwise, `b = has(o, k) && !!get(o, k)` to enforce a truthy field value for field key `k`
   }
 
@@ -86,31 +88,35 @@ export function go (o, p) {
  *
  *  A valid object is
  *
+ *  ```javascript
  *    { fieldName: 'field Value' }
+ *  ```
  *
  *  A valid string is
  *
+ *  ```javascript
  *    /:fieldName
+ *  ```
  */
 export function to (o, p) {
   return (
-    p.replace(/(?::)(\w+)/g, (m, k) => m ? has(o, k) ? get(o, k) : m : m)
+    p.replace(/(?::)(\w+)/g, (m, k) => m ? has(o, k) ? String(get(o, k)) : m : m)
   )
 }
 
 export default class Rails {
   /**
-   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
+   *  @param {string | undefined} [p]   The 'pattern' according to which URLs should be created
    *  @return {string}
    */
   static pattern (p) {
-    return (
+    return ( // @ts-ignore
       p ? (pattern = String(p)) : pattern || (pattern = PATTERN)
     )
   }
 
   /**
-   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
+   *  @param {string} [p]   The 'pattern' according to which URLs should be created
    *  @return {string}
    */
   static rail (p = Rails.pattern()) {
@@ -122,8 +128,8 @@ export default class Rails {
   }
 
   /**
-   *  @param {Record<PropertyKey, unknown> | undefined} o   The object containing values for the 'pattern'
-   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
+   *  @param {Record<PropertyKey, unknown>} [o]   The object containing values for the 'pattern'
+   *  @param {string | undefined} [p]   The 'pattern' according to which URLs should be created
    *  @return {boolean}
    */
   static go (o = {}, p = Rails.pattern()) {
@@ -133,9 +139,9 @@ export default class Rails {
   }
 
   /**
-   *  @param {Record<PropertyKey, unknown> | undefined} o   The object containing values for the 'pattern'
-   *  @param {string | undefined} p   The 'pattern' according to which URLs should be created
-   *  @return {boolean}
+   *  @param {Record<PropertyKey, unknown>} [o]   The object containing values for the 'pattern'
+   *  @param {string} [p]  The 'pattern' according to which URLs should be created
+   *  @return {string}
    */
   static to (o = {}, p = Rails.pattern()) {
     return ( // eslint-disable-next-line no-cond-assign

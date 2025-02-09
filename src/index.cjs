@@ -11,7 +11,7 @@ const log = debug('shinkansen-rails')
 log('`shinkansen` is awake')
 
 const {
-  default: Rails
+  default: Rails // @ts-ignore
 } = require('./rails/index.mjs')
 
 module.exports.Rails = Rails
