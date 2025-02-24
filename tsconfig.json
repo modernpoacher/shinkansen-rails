@@ -9,21 +9,13 @@
     "strict": true,
     "strictNullChecks": true,
     "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "#rails": [
-        "src/index.mjs"
-      ],
-      "#rails/rails": [
-        "src/rails/index.mjs"
-      ]
-    }
+    "baseUrl": "."
   },
   "include": [
     ".",
     "src/**/*"
   ],
   "exclude": [
-    "test"
+    "test/**/*"
   ]
 }
