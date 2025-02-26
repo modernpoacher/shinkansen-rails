@@ -4,18 +4,10 @@
     "target": "ESNext",
     "allowJs": true,
     "checkJs": true,
-    "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "strict": true,
     "strictNullChecks": true,
     "isolatedModules": true,
     "baseUrl": "."
-  },
-  "include": [
-    ".",
-    "src/**/*"
-  ],
-  "exclude": [
-    "test/**/*"
-  ]
+  }
 }

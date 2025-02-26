@@ -178,6 +178,9 @@ describe('shinkansen-rails/rails', () => {
     const defaultPattern = Rails.pattern()
 
     describe('A string is passed as an argument', () => {
+      /**
+       *  @type {string}
+       */
       let returnValue
 
       beforeEach(() => {
