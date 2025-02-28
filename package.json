@@ -9,7 +9,7 @@
     "Zashiki",
     "Karakuri"
   ],
-  "main": "./src/index.cjs",
+  "main": "./src/index.mjs",
   "type": "module",
   "types": "./src/index.d.mts",
   "author": {
