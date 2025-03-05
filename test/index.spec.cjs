@@ -1,10 +1,10 @@
-import {
-  expect
-} from 'chai'
+const {
+  expect // @ts-expect-error
+} = require('chai')
 
-import {
+const {
   Rails
-} from '#rails'
+} = require('#rails')
 
 describe('#rails', () => {
   it('is a function', () => {

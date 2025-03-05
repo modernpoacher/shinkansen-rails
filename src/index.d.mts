@@ -1,1 +1,3 @@
-export { default as Rails } from '#rails/rails'
+export {
+  default as Rails
+} from '#rails/rails'

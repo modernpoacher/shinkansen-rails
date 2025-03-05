@@ -2,70 +2,88 @@ import {
   expect
 } from 'chai'
 
-import Rails, { any, has, get, rail, go, to } from 'shinkansen-rails/rails'
+import Rails, {
+  any,
+  has,
+  get,
+  rail,
+  go,
+  to
+} from '#rails/rails'
 
-describe('shinkansen-rails/rails', () => {
+describe('#rails/rails', () => {
   it('is a function', () => {
-    expect(Rails).to.be.a('function')
+    expect(Rails)
+      .to.be.a('function')
   })
 
   describe('`Rails.pattern`', () => {
     it('is a function', () => {
-      expect(Rails.pattern).to.be.a('function')
+      expect(Rails.pattern)
+        .to.be.a('function')
     })
   })
 
   describe('`Rails.rail`', () => {
     it('is a function', () => {
-      expect(Rails.rail).to.be.a('function')
+      expect(Rails.rail)
+        .to.be.a('function')
     })
   })
 
   describe('`Rails.go`', () => {
     it('is a function', () => {
-      expect(Rails.go).to.be.a('function')
+      expect(Rails.go)
+        .to.be.a('function')
     })
   })
 
   describe('`Rails.to`', () => {
     it('is a function', () => {
-      expect(Rails.to).to.be.a('function')
+      expect(Rails.to)
+        .to.be.a('function')
     })
   })
 
   describe('`any`', () => {
     it('is a function', () => {
-      expect(any).to.be.a('function')
+      expect(any)
+        .to.be.a('function')
     })
   })
 
   describe('`has`', () => {
     it('is a function', () => {
-      expect(has).to.be.a('function')
+      expect(has)
+        .to.be.a('function')
     })
   })
 
   describe('`get`', () => {
     it('is a function', () => {
-      expect(get).to.be.a('function')
+      expect(get)
+        .to.be.a('function')
     })
   })
 
   describe('`rail`', () => {
     it('is a function', () => {
-      expect(rail).to.be.a('function')
+      expect(rail)
+        .to.be.a('function')
     })
   })
 
   describe('`go`', () => {
     it('is a function', () => {
-      expect(go).to.be.a('function')
+      expect(go)
+        .to.be.a('function')
     })
   })
 
   describe('`to`', () => {
     it('is a function', () => {
-      expect(to).to.be.a('function')
+      expect(to)
+        .to.be.a('function')
     })
   })
 
@@ -75,11 +93,13 @@ describe('shinkansen-rails/rails', () => {
      */
     describe('An object is passed as an argument', () => {
       it('has keys', () => {
-        expect(any({ mockField: 'MOCK VALUE' })).to.equal(true)
+        expect(any({ mockField: 'MOCK VALUE' }))
+          .to.equal(true)
       })
 
       it('does not have keys', () => {
-        expect(any({})).to.equal(false)
+        expect(any({}))
+          .to.equal(false)
       })
     })
   })
@@ -90,11 +110,13 @@ describe('shinkansen-rails/rails', () => {
      */
     describe('An object and a string are passed as arguments', () => {
       it('has this key', () => {
-        expect(has({ mockField: 'MOCK VALUE' }, 'mockField')).to.equal(true)
+        expect(has({ mockField: 'MOCK VALUE' }, 'mockField'))
+          .to.equal(true)
       })
 
       it('does not have this key', () => {
-        expect(has({ mockField: 'MOCK VALUE' }, 'MOCK KEY')).to.equal(false)
+        expect(has({ mockField: 'MOCK VALUE' }, 'MOCK KEY'))
+          .to.equal(false)
       })
     })
   })
@@ -105,11 +127,13 @@ describe('shinkansen-rails/rails', () => {
      */
     describe('An object and a string are passed as arguments', () => {
       it('gets this key', () => {
-        expect(get({ mockField: 'MOCK VALUE' }, 'mockField')).to.equal('MOCK VALUE')
+        expect(get({ mockField: 'MOCK VALUE' }, 'mockField'))
+          .to.equal('MOCK VALUE')
       })
 
       it('does not get this key', () => {
-        expect(get({ mockField: 'MOCK VALUE' }, 'MOCK KEY')).to.be.an('undefined')
+        expect(get({ mockField: 'MOCK VALUE' }, 'MOCK KEY'))
+          .to.be.an('undefined')
       })
     })
   })
@@ -117,7 +141,8 @@ describe('shinkansen-rails/rails', () => {
   describe('`rail()`', () => {
     describe('A string is passed as an argument', () => {
       it('returns a string', () => {
-        expect(rail('MOCK STRING')).to.be.a('string')
+        expect(rail('MOCK STRING'))
+          .to.be.a('string')
       })
 
       it('formats the string', () => {
@@ -127,7 +152,8 @@ describe('shinkansen-rails/rails', () => {
          *  3.  All duplicate adjacent whitespace characters are removed
          *  4.  All whitespace characters are replaced with hyphen characters
          */
-        expect(rail(' 1 2  3 M:o;C+k/S<T>R?I[]N{}G 4  5 6 ')).to.equal('1-2-3-m-o-c-k-s-t-r-i-n-g-4-5-6')
+        expect(rail(' 1 2  3 M:o;C+k/S<T>R?I[]N{}G 4  5 6 '))
+          .to.equal('1-2-3-m-o-c-k-s-t-r-i-n-g-4-5-6')
       })
     })
   })
@@ -192,21 +218,25 @@ describe('shinkansen-rails/rails', () => {
       })
 
       it('returns a string', () => {
-        expect(returnValue).to.be.a('string')
+        expect(returnValue)
+          .to.be.a('string')
       })
 
       it('is the provided pattern', () => {
-        expect(returnValue).to.equal(':/mock-pattern')
+        expect(returnValue)
+          .to.equal(':/mock-pattern')
       })
     })
 
     describe('A string is not passed as an argument', () => {
       it('returns a string', () => {
-        expect(defaultPattern).to.be.a('string')
+        expect(defaultPattern)
+          .to.be.a('string')
       })
 
       it('is the default pattern', () => {
-        expect(defaultPattern).to.equal('/:alpha/:omega')
+        expect(defaultPattern)
+          .to.equal('/:alpha/:omega')
       })
     })
   })
@@ -214,7 +244,8 @@ describe('shinkansen-rails/rails', () => {
   describe('`Rails.rail()`', () => {
     describe('A string is passed as an argument', () => {
       it('returns a string', () => {
-        expect(Rails.rail('MOCK STRING')).to.be.a('string')
+        expect(Rails.rail('MOCK STRING'))
+          .to.be.a('string')
       })
 
       it('formats the string', () => {
@@ -224,7 +255,8 @@ describe('shinkansen-rails/rails', () => {
          *  3.  All duplicate adjacent whitespace characters are removed
          *  4.  All whitespace characters are replaced with hyphen characters
          */
-        expect(Rails.rail(' 1 2  3 M:o;C+k/S<T>R?I[]N{}G 4  5 6 ')).to.equal('1-2-3-m-o-c-k-s-t-r-i-n-g-4-5-6')
+        expect(Rails.rail(' 1 2  3 M:o;C+k/S<T>R?I[]N{}G 4  5 6 '))
+          .to.equal('1-2-3-m-o-c-k-s-t-r-i-n-g-4-5-6')
       })
     })
   })

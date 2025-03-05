@@ -7,7 +7,21 @@
     "noEmit": true,
     "strict": true,
     "strictNullChecks": true,
-    "isolatedModules": true,
-    "baseUrl": "."
-  }
+    "baseUrl": ".",
+    "paths": {
+      "#rails": [
+        "src/index.cjs",
+        "src/index.mjs"
+      ],
+      "#rails/rails": [
+        "src/rails/index.mjs"
+      ]
+    }
+  },
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "test/**/*"
+  ]
 }

@@ -53,7 +53,8 @@ export default [
     ],
     languageOptions: {
       globals: {
-        ...globals.node
+        ...globals.node,
+        RailsTypes: 'readonly'
       }
     }
   }),
@@ -64,7 +65,8 @@ export default [
     ],
     languageOptions: {
       globals: {
-        ...globals.browser
+        ...globals.browser,
+        RailsTypes: 'readonly'
       }
     }
   })

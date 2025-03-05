@@ -1,10 +1,16 @@
+/**
+ *  @typedef {RailsTypes.ObjectType} ObjectType
+ */
+
 import debug from 'debug'
 
 const log = debug('shinkansen-rails')
 
 log('`shinkansen` is awake')
 
-// @ts-ignore
+/**
+ *  @type {string}
+ */
 let pattern
 
 const map = new Map()
@@ -15,23 +21,23 @@ const CHAR32 = String.fromCharCode(32)
 const CHAR45 = String.fromCharCode(45)
 
 /**
- *  @param {Record<PropertyKey, unknown>} o   The object containing values
+ *  @param {ObjectType} o   The object containing values
  */
-export const any = (o) => !!Reflect.ownKeys(o).length
+export const any = (o) => !!Object.keys(o).length // Reflect.ownKeys(o).length
 
 /**
- *  @param {Record<PropertyKey, unknown>} o   The object containing values
+ *  @param {ObjectType} o   The object containing values
  *  @param {string} k   The value name
  *  @returns {boolean}
  */
-export const has = (o, k) => Reflect.has(o, k)
+export const has = (o, k) => k in o // Reflect.has(o, k)
 
 /**
- *  @param {Record<PropertyKey, unknown>} o   The object containing values
+ *  @param {ObjectType} o   The object containing values
  *  @param {string} k   The value name
  *  @returns {unknown}
  */
-export const get = (o, k) => Reflect.get(o, k)
+export const get = (o, k) => o[k] // Reflect.get(o, k)
 
 /**
  *  Format simple latin character strings as URL compatible
@@ -48,7 +54,7 @@ export function rail (p) {
 /**
  *  Interrogate parameters to determine whether or not components can be created
  *
- *  @param {Record<PropertyKey, unknown>} o   The object containing values for the 'pattern'
+ *  @param {ObjectType} o   The object containing values for the 'pattern'
  *  @param {string} p   The 'pattern' according to which URLs should be created
  *  @return {boolean}
  *
@@ -80,7 +86,7 @@ export function go (o, p) {
 /**
  *  Interrogate parameters for object field names
  *
- *  @param {Record<PropertyKey, unknown>} o   The object containing fields
+ *  @param {ObjectType} o   The object containing fields
  *  @param {string} p   The string containing field names to be found
  *  @return {string}
  *
@@ -128,7 +134,7 @@ export default class Rails {
   }
 
   /**
-   *  @param {Record<PropertyKey, unknown>} [o]   The object containing values for the 'pattern'
+   *  @param {ObjectType} [o]   The object containing values for the 'pattern'
    *  @param {string | undefined} [p]   The 'pattern' according to which URLs should be created
    *  @return {boolean}
    */
@@ -139,7 +145,7 @@ export default class Rails {
   }
 
   /**
-   *  @param {Record<PropertyKey, unknown>} [o]   The object containing values for the 'pattern'
+   *  @param {ObjectType} [o]   The object containing values for the 'pattern'
    *  @param {string} [p]  The 'pattern' according to which URLs should be created
    *  @return {string}
    */
