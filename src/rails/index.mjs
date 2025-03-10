@@ -23,21 +23,21 @@ const CHAR45 = String.fromCharCode(45)
 /**
  *  @param {ObjectType} o   The object containing values
  */
-export const any = (o) => !!Object.keys(o).length // Reflect.ownKeys(o).length
+export const any = (o) => !!Object.keys(o).length
 
 /**
  *  @param {ObjectType} o   The object containing values
  *  @param {string} k   The value name
  *  @returns {boolean}
  */
-export const has = (o, k) => k in o // Reflect.has(o, k)
+export const has = (o, k) => k in o
 
 /**
  *  @param {ObjectType} o   The object containing values
  *  @param {string} k   The value name
  *  @returns {unknown}
  */
-export const get = (o, k) => o[k] // Reflect.get(o, k)
+export const get = (o, k) => o[k]
 
 /**
  *  Format simple latin character strings as URL compatible
