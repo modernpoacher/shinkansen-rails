@@ -43,7 +43,7 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/register": "^7.25.9",
     "@sequencemedia/eslint-config-standard": "^0.2.43",
-    "@sequencemedia/eslint-config-typescript": "^0.1.61",
+    "@sequencemedia/eslint-config-typescript": "^0.1.62",
     "@types/babel__register": "^7.17.3",
     "@types/chai": "^5.2.0",
     "@types/debug": "^4.1.12",
