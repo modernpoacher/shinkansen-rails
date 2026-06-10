@@ -7,14 +7,13 @@
     "noEmit": true,
     "strict": true,
     "strictNullChecks": true,
-    "baseUrl": ".",
     "paths": {
       "#rails": [
-        "src/index.cjs",
-        "src/index.mjs"
+        "./src/index.cjs",
+        "./src/index.mjs"
       ],
       "#rails/rails": [
-        "src/rails/index.mjs"
+        "./src/rails/index.mjs"
       ]
     }
   },
