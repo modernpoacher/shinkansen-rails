@@ -71,5 +71,8 @@
       "import": "./src/index.mjs"
     },
     "./rails": "./src/rails/index.mjs"
+  },
+  "allowScripts": {
+    "core-js@3.51.0": true
   }
 }
